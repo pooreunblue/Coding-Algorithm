@@ -1,11 +1,11 @@
 import java.util.*;
 class Solution {
     public int[] solution(int n, int k) {
-        List<Integer> answer = new ArrayList<>();
-        for(int i=k;i<=n;i++) {
-            if(i%k==0)
-                answer.add(i);
+    int count = n / k;
+        int[] answer = new int[count];
+        for(int i=0; i<count; i++) {
+            answer[i] = (i+1)*k;
         }
-        return answer.stream().mapToInt(i->i).toArray();
+        return answer;
     }
 }
