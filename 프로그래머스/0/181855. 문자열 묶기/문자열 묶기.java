@@ -1,22 +1,17 @@
-import java.util.Arrays;
-
 class Solution {
     public int solution(String[] strArr) {
+        int answer = 0;
         int max = 0;
-        for (int i = 0; i < strArr.length; i++) {
+        for (int i=0; i < strArr.length; i++) {
             max = Math.max(strArr[i].length(), max);
         }
-        int[] num = new int[max + 1];
-        for (int i = 0; i < strArr.length; i++) {
-            num[strArr[i].length()]++;
+        int[] arrLength = new int[max + 1];
+        for (int i=0; i < strArr.length; i++) {
+            arrLength[strArr[i].length()]++;
         }
-        int nMax = 0;
-        for (int i = 0; i < num.length; i++) {
-            if (nMax < num[i]) {
-                nMax = num[i];
-            }
+        for (int i=0; i < arrLength.length; i++) {
+            answer = Math.max(arrLength[i], answer);
         }
-        int answer = nMax;
         return answer;
     }
 }
