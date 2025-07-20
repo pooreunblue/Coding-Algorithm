@@ -1,2 +1,2 @@
 def solution(numbers):
-    return [i*2 for i in numbers]
+    return list(map(lambda i: i*2, numbers))
