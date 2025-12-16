@@ -1,5 +1,2 @@
 def solution(n):
-    answer = 0
-    for i in range(0, n//2+1):
-        answer += i
-    return answer*2
+    return sum(range(0,n+1,2))
