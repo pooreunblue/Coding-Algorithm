@@ -1,6 +1,2 @@
 def solution(order):
-    count = 0
-    clap_num = [3,6,9]
-    for i in clap_num:
-        count += str(order).count(str(i))
-    return count
+    return len([i for i in str(order) if i in ['3','6','9']])
