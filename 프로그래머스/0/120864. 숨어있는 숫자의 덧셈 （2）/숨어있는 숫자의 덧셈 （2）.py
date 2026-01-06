@@ -1,14 +1,3 @@
 def solution(my_string):
-    ans = 0
-    number = ''
-    for i in my_string:
-        if i.isdigit():
-            number += i
-        else:
-            if len(number) >= 1:
-                ans += int(number)
-                number = ''
-    if len(number) >= 1:
-        ans += int(number)
-    return ans
-            
+    num_str = ''.join(i if i.isdigit() else ' ' for i in my_string)
+    return sum(int(i) for i in num_str.strip().split())
