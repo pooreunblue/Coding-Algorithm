@@ -6,7 +6,5 @@ def solution(a, b):
         denom //= 2
     while denom % 5 == 0:
         denom //= 5
-    if denom == 1 or a % b == 0:
-        return 1
-    return 2
+    return 1 if denom == 1 or a % b == 0 else 2
     
