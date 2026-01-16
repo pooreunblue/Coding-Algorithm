@@ -3,6 +3,5 @@ numbers = input().split()
 a = []
 for n in numbers:
     if int(n) < x:
-        a.append(n)
-        
+        a.append(n)  
 print(' '.join(a))
