@@ -7,16 +7,18 @@ prime[0] = False
 prime[1] = False
 for i in range(2, int(math.sqrt(N))+1):
     if prime[i]:
-        for j in range(2*i, N+1, i):
-            prime[j] = False
+        prime[i*i::i] = [False] * len(prime[i*i::i])
+primes = [i for i in range(N+1) if prime[i]]
 
 T = int(sys.stdin.readline().strip())
 a = []
 for _ in range(T):
     cnt = 0
     n = int(sys.stdin.readline().strip())
-    for i in range(2, n//2+1):
-        if prime[i] and prime[n-i]:
+    for p in primes:
+        if p > n // 2:
+            break
+        if prime[n-p]:
             cnt += 1
     a.append(cnt)
 print(*a, sep='\n')
