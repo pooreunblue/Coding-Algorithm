@@ -2,13 +2,13 @@ import sys
 
 N = int(sys.stdin.readline())
 cnt = 0
-a = set()
 for _ in range(N):
     t = sys.stdin.readline().strip()
     if t == 'ENTER':
-        cnt += len(list(a))
         a = set()
-    else:
+    elif t not in a:
         a.add(t)
-cnt += len(list(a))
+        cnt += 1
+    elif t in a:
+        continue
 print(cnt)
