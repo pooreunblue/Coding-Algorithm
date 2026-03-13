@@ -1,30 +1,24 @@
+s = "}]()[{"
 def solution(s):
     cnt = 0
     for _ in range(len(s)):
         stk = []
-        is_correct = False
         for c in s:
             if c == '[' or c == '(' or c == '{':
                 stk.append(c)
-            elif c == ']':
-                if not stk or stk[-1] != '[':
-                    is_correct = False
+            else: 
+                if not stk:
                     break
-                stk.pop()
-                is_correct = True
-            elif c == ')':
-                if not stk or stk[-1] != '(':
-                    is_correct = False
+                elif c == ']' and stk[-1] == '[':
+                    stk.pop()
+                elif c == ')' and stk[-1] == '(':
+                    stk.pop()
+                elif c == '}' and stk[-1] == '{':
+                    stk.pop()
+                else:
                     break
-                stk.pop()
-                is_correct = True
-            elif c == '}':
-                if not stk or stk[-1] != '{':
-                    is_correct = False
-                    break
-                stk.pop()
-                is_correct = True
-        if not stk and is_correct:
-            cnt += 1
+        else:
+            if not stk:
+                cnt += 1
         s = s[1:] + s[0]
     return cnt
