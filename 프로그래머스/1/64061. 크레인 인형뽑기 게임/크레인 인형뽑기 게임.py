@@ -8,7 +8,7 @@ def solution(board, moves):
             if row[j]:
                 stks[j].append(row[j])
     for m in moves:
-        if stks[m-1] and stks[m-1][-1]:
+        if stks[m-1]:
             basket.append(stks[m-1].pop())
             if len(basket) >= 2 and basket[-1] == basket[-2]:
                 basket.pop()
