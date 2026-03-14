@@ -3,15 +3,20 @@ def solution(board, moves):
     cnt = 0
     stks = [[] * n for _ in range(n)]
     basket = []
-    for i, row in enumerate(reversed(board)):
-        for j in range(n):
-            if row[j]:
-                stks[j].append(row[j])
+    for row in reversed(board):
+        for i in range(len(row)):
+            if row[i]:
+                stks[i].append(row[i])
     for m in moves:
-        if stks[m-1]:
-            basket.append(stks[m-1].pop())
-            if len(basket) >= 2 and basket[-1] == basket[-2]:
-                basket.pop()
-                basket.pop()
-                cnt += 2
+        if not basket:
+            if stks[m-1]:
+                basket.append(stks[m-1].pop())
+        else:    
+            if stks[m-1]:
+                if basket[-1] == stks[m-1][-1]:
+                    stks[m-1].pop()
+                    basket.pop()
+                    cnt += 2
+                else:
+                    basket.append(stks[m-1].pop())
     return cnt
