@@ -9,13 +9,12 @@ def solution(board, moves):
                 stks[i].append(row[i])
     for m in moves:
         if stks[m-1]:
+            doll = stks[m-1].pop()
             if not basket:
-                basket.append(stks[m-1].pop())
-            else:    
-                if basket[-1] == stks[m-1][-1]:
-                    stks[m-1].pop()
-                    basket.pop()
-                    cnt += 2
-                else:
-                    basket.append(stks[m-1].pop())
+                basket.append(doll)
+            elif basket[-1] == doll:
+                basket.pop()
+                cnt += 2
+            else:
+                basket.append(doll)
     return cnt
