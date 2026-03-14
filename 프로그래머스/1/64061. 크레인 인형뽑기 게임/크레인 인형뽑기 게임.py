@@ -8,11 +8,10 @@ def solution(board, moves):
             if row[i]:
                 stks[i].append(row[i])
     for m in moves:
-        if not basket:
-            if stks[m-1]:
+        if stks[m-1]:
+            if not basket:
                 basket.append(stks[m-1].pop())
-        else:    
-            if stks[m-1]:
+            else:    
                 if basket[-1] == stks[m-1][-1]:
                     stks[m-1].pop()
                     basket.pop()
