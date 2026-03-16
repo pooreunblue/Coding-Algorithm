@@ -1,20 +1,17 @@
 import math
-from collections import deque
-
 def solution(progresses, speeds):
-    days = deque()
     a = []
-    for i in range(len(progresses)): 
-        days.append(math.ceil((100-progresses[i])/speeds[i]))
-    progress_1 = days.popleft()
-    cnt = 1
-    while days:
-        p = days.popleft()
-        if p <= progress_1:
+    days = [math.ceil((100-p)/s) for p, s in zip(progresses, speeds)]
+    distribution_day = days[0]
+    cnt = 0
+    print(days)
+    for i in range(len(progresses)):
+        print(distribution_day)
+        if days[i] <= distribution_day:
             cnt += 1
         else:
             a.append(cnt)
-            progress_1 = p
+            distribution_day = days[i]
             cnt = 1
     a.append(cnt)
     return a
