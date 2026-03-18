@@ -4,8 +4,7 @@ def Cantor(N):
     if N == 0:
         return '-'
     else:
-        s = Cantor(N-1) + ' ' * len(Cantor(N-1)) + Cantor(N-1)
-    return s
+        return Cantor(N-1) + ' ' * len(Cantor(N-1)) + Cantor(N-1)
 
 while True:
     try:
