@@ -4,5 +4,4 @@ def solution(participant, completion):
     player = Counter(participant)
     complete = Counter(completion)
     player -= complete
-    uncomplete = list(player.keys())
-    return uncomplete[0]
+    return list(player.keys())[0]
