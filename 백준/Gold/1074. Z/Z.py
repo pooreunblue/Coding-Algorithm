@@ -3,7 +3,6 @@ import sys
 N, r, c = map(int, sys.stdin.readline().split())
 
 def Z(x,y,N):
-    cnt = 0
     if N == 1:
         if x == 0 and y == 0:
             return 0
