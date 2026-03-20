@@ -12,6 +12,5 @@ def solution(want, number, discount):
                 break
             else: continue
         else:
-            print(i)
             cnt += 1
     return cnt
