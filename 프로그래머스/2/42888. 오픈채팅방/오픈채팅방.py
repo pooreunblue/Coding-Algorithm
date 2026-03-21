@@ -1,6 +1,5 @@
 def solution(record):
     directory = {}
-    log = {}
     a = []
     for r in record:
         data = r.split()
