@@ -1,9 +1,10 @@
 def solution(record):
     directory = {}
+    log = {}
     a = []
     for r in record:
         data = r.split()
-        if data[0] == "Enter" or data[0] == "Change":
+        if data[0] != "Leave":
             directory[data[1]] = data[2]
     for r in record:
         data = r.split()
