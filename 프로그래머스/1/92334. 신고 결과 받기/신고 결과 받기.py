@@ -7,9 +7,8 @@ def solution(id_list, report, k):
     for r in report:
         reporter, reported = r.split()
         if reported not in report_dict:
-            report_dict[reported] = []
-        if reporter not in report_dict[reported]:
-            report_dict[reported].append(reporter)
+            report_dict[reported] = set()
+        report_dict[reported].add(reporter)
     suspended = [reported for reported, reporter in report_dict.items() if len(reporter) >= k]
     for suspended_user in suspended:
         for reporter in report_dict[suspended_user]:
