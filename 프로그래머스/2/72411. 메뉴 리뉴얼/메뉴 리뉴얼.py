@@ -6,9 +6,8 @@ def solution(orders, course):
     counts = {}
     for order in orders:
         for c in course:
-            order = sorted(order)
             if len(order) >= c:
-                menus = [''.join(menu) for menu in combinations(order,c)]
+                menus = [''.join(menu) for menu in combinations(sorted(order),c)]
                 for menu in menus:
                     if menu not in courses:
                         courses[menu] = 1
