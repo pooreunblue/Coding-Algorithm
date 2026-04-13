@@ -1,3 +1,7 @@
+def add(arr, i, n):
+    arr[0] = i % n + 1
+    arr[1] = (i + n) // n
+    return arr
 def solution(n, words):
     word_set = set()
     answer = [0,0]
@@ -8,13 +12,10 @@ def solution(n, words):
             if words[i].startswith(w):
                 if words[i] not in word_set:
                     word_set.add(words[i])
-                    print(word_set)
                 else:
-                    answer[0] = i % n + 1
-                    answer[1] = (i + n) // n
+                    add(answer, i, n)
                     break
             else:
-                answer[0] = i % n + 1
-                answer[1] = (i + n) // n
+                add(answer, i, n)
                 break
     return answer
