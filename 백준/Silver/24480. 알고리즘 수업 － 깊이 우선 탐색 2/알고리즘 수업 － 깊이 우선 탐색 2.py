@@ -6,7 +6,6 @@ adj_list = defaultdict(list)
 visited = set()
 N, M, R = map(int, sys.stdin.readline().split())
 order = [0] * (N+1)
-i = 1
 for i in range(M):
     u, v = map(int, sys.stdin.readline().split())
     adj_list[u].append(v)
