@@ -24,7 +24,4 @@ def solution(N, road, K):
             if new_distance < distances[neighbor]:
                 distances[neighbor] = new_distance
                 heapq.heappush(priority_queue, (new_distance, neighbor))
-    for d in distances:
-        if d <= K:
-            count += 1
-    return count
+    return sum(1 for d in distances if d <= K)
