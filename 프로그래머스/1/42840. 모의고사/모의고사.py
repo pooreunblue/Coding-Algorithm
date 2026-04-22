@@ -1,13 +1,13 @@
 def solution(answers):
-    a = []
-    supo = [[1,2,3,4,5], [2,1,2,3,2,4,2,5], [3,3,1,1,2,2,4,4,5,5]]
+    result = []
     scores = [0] * 3
-    for j, numbers in enumerate(supo):
-        for i, answer in enumerate(answers):
-            if answer == numbers[i % len(numbers)]:
-                scores[j] += 1
-    max_scores = max(scores)
+    methods = [[1,2,3,4,5], [2,1,2,3,2,4,2,5], [3,3,1,1,2,2,4,4,5,5]]
+    for i, method in enumerate(methods):
+        for j, answer in enumerate(answers):
+            if answer == method[j%len(method)]:
+                scores[i] += 1
+    max_score = max(scores)
     for i, score in enumerate(scores):
-        if score == max_scores:
-            a.append(i+1)
-    return sorted(a)
+        if score == max_score:
+            result.append(i+1)
+    return result
