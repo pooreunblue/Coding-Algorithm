@@ -18,6 +18,6 @@ def solution(s):
                     break
         else:
             if not stk:
-                cnt += 1
+                   cnt += 1
         s = s[1:] + s[0]
     return cnt
