@@ -1,7 +1,7 @@
 def solution(n, k, cmd):
     delete = []
     up = [i-1 for i in range(n+2)]
-    down = [i+1 for i in range(n+2)]
+    down = [i+1 for i in range(n+1)]
     k += 1
     for i in cmd:
         if i == 'C':
