@@ -1,20 +1,19 @@
 def solution(board, moves):
-    n = len(board)
     cnt = 0
-    stks = [[] * n for _ in range(n)]
     basket = []
-    for row in reversed(board):
-        for i in range(len(row)):
-            if row[i]:
-                stks[i].append(row[i])
-    for m in moves:
-        if stks[m-1]:
-            doll = stks[m-1].pop()
-            if not basket:
-                basket.append(doll)
-            elif basket[-1] == doll:
-                basket.pop()
-                cnt += 2
-            else:
-                basket.append(doll)
+    square = [[] for _ in range(len(board))]
+    for i in range(len(board[0])):
+        for j in range(len(board)-1, -1, -1):
+            square[i].append(board[j][i])
+    for move in moves:
+        while square[move-1] and square[move-1][-1] == 0:
+            square[move-1].pop()
+        if square[move-1]:
+            basket.append(square[move-1].pop())
+        else:
+            continue
+        if len(basket) >= 2 and basket[-1] == basket[-2]:
+            basket.pop()
+            basket.pop()
+            cnt += 2
     return cnt
