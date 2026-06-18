@@ -7,6 +7,6 @@ class Solution {
         for (int num : nums) {
             set.add(num);
         }
-        return Math.min(N / 2, set.size());
+        return Math.min(N/2, set.size());
     }
 }
