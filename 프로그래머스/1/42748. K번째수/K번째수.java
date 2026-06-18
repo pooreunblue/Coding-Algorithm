@@ -8,7 +8,7 @@ class Solution {
             int j = command[1];
             int k = command[2];
             List<Integer> list = new ArrayList<>();
-            for (int ii = i-1; ii<j; ii++) {
+            for (int ii = i-1; ii < j; ii++) {
                 list.add(array[ii]);
             }
             list.sort(Comparator.naturalOrder());
