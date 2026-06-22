@@ -7,17 +7,13 @@ class Solution {
         for (char c : s.toCharArray()) {
             if (c == '(') {
                 stack.add(c);
-            }
-            else if (c == ')') {
-                if (!stack.isEmpty()) {
-                    stack.pop();
-                } else {
+            } else {
+                if (stack.isEmpty()) {
                     return false;
                 }
+                stack.pop();
             }
         }
-        if (!stack.isEmpty()) {
-            return false;
-        } else { return true;}
+        return stack.isEmpty();
     }
 }
