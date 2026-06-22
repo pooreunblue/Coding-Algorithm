@@ -3,7 +3,7 @@ import java.util.*;
 class Solution {
     public String solution(String s) {
         boolean isFirst = true;
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         for (char c : s.toCharArray()) {
             if (isFirst == true) {
                 c = Character.toUpperCase(c);
@@ -16,8 +16,8 @@ class Solution {
             if (c == ' ') {
                 isFirst = true;
             }
-            answer += c;
+            sb.append(c);
         }
-        return answer;
+        return sb.toString();
     }
 }
