@@ -15,14 +15,14 @@ class Solution {
     }
     
     static void dfs(String numbers, boolean[] visited, String current) {
-        if (!current.equals("")) {
-            set.add(Integer.parseInt(current));
+        if (!current.equals("")) { // 문자열이 비어있지 않기만 하면
+            set.add(Integer.parseInt(current)); // 바로 집합에 저장
         }
-        for (int i=0; i < numbers.length(); i++) {
-            if (visited[i]) continue;
-            visited[i] = true;
-            dfs(numbers, visited, current + numbers.charAt(i));
-            visited[i]= false;
+        for (int i=0; i < numbers.length(); i++) { // 문자열 모두 순회
+            if (visited[i]) continue; // 이미 사용한 숫자 제외
+            visited[i] = true; // 사용 여부 체크
+            dfs(numbers, visited, current + numbers.charAt(i)); // 다음 숫자 만들기
+            visited[i]= false; // 새로운 수 만들때 또 쓸 수 있으므로 원상 복구
         }
     }
     
