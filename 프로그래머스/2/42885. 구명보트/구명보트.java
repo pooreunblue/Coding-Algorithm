@@ -1,0 +1,22 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int[] people, int limit) {
+        Arrays.sort(people);
+        System.out.println(Arrays.toString(people));
+        int count = 0;
+        int left = 0;
+        int right = people.length-1;
+        while (left <= right) {
+            if (people[left] + people[right] > limit) {
+                right--;
+                count += 1;
+            } else {
+                left++;
+                right--;
+                count += 1;
+            }
+        }
+        return count;
+    }
+}
