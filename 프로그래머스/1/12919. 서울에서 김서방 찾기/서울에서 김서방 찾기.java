@@ -7,6 +7,7 @@ class Solution {
         for (int i = 0; i < seoul.length; i++) {
             if (seoul[i].equals(kim)) {
                 a = i;
+                break;
             }
         }
         return s1 + a + s2;
