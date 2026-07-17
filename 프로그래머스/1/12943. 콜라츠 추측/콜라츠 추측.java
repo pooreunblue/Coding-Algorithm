@@ -1,0 +1,17 @@
+class Solution {
+    public int solution(long num) {
+        long count = 0;
+        while (num != 1) {
+            if (num % 2 == 0) {
+                num /= 2;
+            } else {
+                num = 3 * num + 1;
+            }
+            count++;
+        }
+        if (count > 500) {
+            return -1;
+        }
+        return (int) count;
+    }
+}
