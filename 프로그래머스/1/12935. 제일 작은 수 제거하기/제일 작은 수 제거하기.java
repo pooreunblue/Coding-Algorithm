@@ -2,16 +2,15 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] arr) {
-        List<Integer> numbers = new ArrayList<>();
-        for (int num : arr) {
-            numbers.add(num);
+        List<Integer> list = new ArrayList<>();
+        for (int number : arr) {
+            list.add(number);
         }
-        int min = Collections.min(numbers);
-        numbers.remove(Integer.valueOf(min));
-        if (numbers.isEmpty()) {
-            numbers.add(-1);
+        int min = Collections.min(list);
+        list.remove(Integer.valueOf(min));
+        if (list.isEmpty()) {
+            list.add(-1);
         }
-        int[] answer = numbers.stream().mapToInt(i -> i).toArray();
-        return answer;
+        return list.stream().mapToInt(i -> i).toArray();
     }
 }
